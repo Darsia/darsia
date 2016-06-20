@@ -32,10 +32,10 @@ $goodsCount = count(Shopcart::goods());
                     ]); ?>
                 </nav>
                 <nav class="h-nav pull-right">
-                    <a href="<?= Url::to(['/shopcart']) ?>" class="btn btn-default navbar-btn navbar-right" title="Complete order">
+                    <a href="<?= Url::to(['/shopcart']) ?>" class="btn btn-default navbar-btn navbar-right" title="Закончить покупки">
                         <i class="glyphicon glyphicon-shopping-cart"></i>
                         <?php if($goodsCount > 0) : ?>
-                            <?= $goodsCount ?> <?= $goodsCount > 1 ? 'items' : 'item' ?> - <?= Shopcart::cost() ?>$
+                            <?= $goodsCount ?> <?= $goodsCount > 1 ? 'товара' : 'товар' ?> - <?= Shopcart::cost() ?> руб.
                         <?php else : ?>
                             <span class="text-muted">Пусто</span>
                         <?php endif; ?>
