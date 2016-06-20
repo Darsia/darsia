@@ -14,17 +14,17 @@ $this->title = $page->seo('title', $page->model->title);
 ?>
 
 <?= Carousel::widget(1140, 520) ?>
-
+<!--
 <div class="text-center">
-    <h1><?= Text::get('index-welcome-title') ?></h1>
-    <p><?= $page->text ?></p>
+    <h1><?php //echo Text::get('index-welcome-title') ?></h1>
+    <p><?php //echo $page->text ?></p>
 </div>
-
+-->
 <br/>
 <hr/>
 
 <div class="text-center">
-    <h2>Last photos</h2>
+    <h2>Последние фотографии</h2>
     <br/>
     <?php foreach(Gallery::last(6) as $photo) : ?>
         <?= $photo->box(180, 135) ?>
@@ -35,7 +35,7 @@ $this->title = $page->seo('title', $page->model->title);
 <hr/>
 
 <div class="text-center">
-    <h2>Last reviews</h2>
+    <h2>Последние отзывы</h2>
     <br/>
     <div class="row text-left">
         <?php foreach(Guestbook::last(2) as $post) : ?>

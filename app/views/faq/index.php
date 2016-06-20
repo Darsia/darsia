@@ -11,6 +11,6 @@ $this->params['breadcrumbs'][] = $page->model->title;
 <br/>
 
 <?php foreach(Faq::items() as $item) : ?>
-    <p><b>Question: </b><?= $item->question ?></p>
-    <blockquote><b>Answer: </b><?= $item->answer ?></blockquote>
+    <p><b>Вопрос: </b><?= $item->question ?></p>
+    <blockquote><b>Ответ: </b><?= $item->answer ?></blockquote>
 <?php endforeach; ?>

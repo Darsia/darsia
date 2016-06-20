@@ -16,7 +16,7 @@ $this->params['breadcrumbs'][] = $page->model->title;
     </div>
     <div class="col-md-4">
         <?php if(Yii::$app->request->get(Feedback::SENT_VAR)) : ?>
-            <h4 class="text-success"><i class="glyphicon glyphicon-ok"></i> Message successfully sent</h4>
+            <h4 class="text-success"><i class="glyphicon glyphicon-ok"></i> Сообщение успешно отправлено</h4>
         <?php else : ?>
             <div class="well well-sm">
                 <?= Feedback::form() ?>

@@ -22,13 +22,13 @@ $this->params['breadcrumbs'][] = $cat->model->title;
         <?php endif; ?>
     </div>
     <div class="col-md-3 col-md-offset-1">
-        <h4>Filters</h4>
+        <h4>Фильтры</h4>
         <div class="well well-sm">
             <?php $form = ActiveForm::begin(['method' => 'get', 'action' => Url::to(['/shop/cat', 'slug' => $cat->slug])]); ?>
-                <?= $form->field($filterForm, 'brand')->dropDownList($cat->fieldOptions('brand', 'Select brand')) ?>
-                <?= $form->field($filterForm, 'priceFrom') ?>
-                <?= $form->field($filterForm, 'priceTo') ?>
-                <?= Html::submitButton('Submit', ['class' => 'btn btn-primary']) ?>
+                <?= $form->field($filterForm, 'brand')->dropDownList($cat->fieldOptions('brand', 'Выберите производителя...'))->label('Производитель') ?>
+                <?= $form->field($filterForm, 'priceFrom')->label('Цена от') ?>
+                <?= $form->field($filterForm, 'priceTo')->label('Цена до') ?>
+                <?= Html::submitButton('Фильтровать', ['class' => 'btn btn-primary']) ?>
             <?php ActiveForm::end(); ?>
         </div>
     </div>

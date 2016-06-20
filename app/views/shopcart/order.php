@@ -1,19 +1,19 @@
 <?php
 use yii\helpers\Html;
 
-$this->title = 'Order details';
+$this->title = 'Детали заказа';
 ?>
 <h1>Order #<?= $order->id ?></h1>
 
-<div class="well well-sm">Status: <b><?= $order->status ?></b></div>
+<div class="well well-sm">Статус: <b><?= $order->status ?></b></div>
 
 <table class="table">
     <thead>
     <tr>
-        <th>Item</th>
-        <th width="100">Quantity</th>
-        <th width="120">Unit Price</th>
-        <th width="100">Total</th>
+        <th>Товар</th>
+        <th width="100">Количество</th>
+        <th width="120">Цена за штуку</th>
+        <th width="100">Всего</th>
     </tr>
     </thead>
     <tbody>
@@ -35,7 +35,7 @@ $this->title = 'Order details';
     <?php endforeach; ?>
     <tr>
         <td colspan="5" class="text-right">
-            <h3>Total: <?= $order->cost ?>$</h3>
+            <h3>Всего: <?= $order->cost ?> руб.</h3>
         </td>
     </tr>
     </tbody>

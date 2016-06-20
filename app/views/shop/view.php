@@ -37,21 +37,20 @@ if(!empty($item->data->color) && is_array($item->data->color)) {
         <div class="row">
             <div class="col-md-8">
                 <h2>
-                    <span class="label label-warning"><?= $item->price ?>$</span>
+                    <span class="label label-warning"><?= $item->price ?> руб.</span>
                     <?php if($item->discount) : ?>
                         <del class="small"><?= $item->oldPrice ?></del>
                     <?php endif; ?>
                 </h2>
-                <h3>Characteristics</h3>
-                <span class="text-muted">Brand:</span> <?= $item->data->brand ?>
+                <h3>Характеристики:</h3>
+                <span class="text-muted">Производитель:</span> <?= $item->data->brand ?>
                 <br/>
-                <span class="text-muted">Storage:</span> <?= $item->data->storage ?> GB
+                <span class="text-muted">Страна производитель:</span> <?= $item->data->country ?>
                 <br/>
-                <span class="text-muted">Touchscreen:</span> <?= $item->data->touchscreen ? 'Yes' : 'No' ?>
+                <span class="text-muted">Размер:</span> <?= $item->data->size ?>
                 <br/>
-                <span class="text-muted">CPU cores:</span> <?= $item->data->cpu ?>
-                <br/>
-                <span class="text-muted">Availability:</span> <?= $item->available ? $item->available : 'Out of stock' ?>
+
+                <span class="text-muted">В наличии:</span> <?= $item->available ? $item->available : 'Out of stock' ?>
                 <?php if(!empty($item->data->features)) : ?>
                     <br/>
                     <span class="text-muted">Features:</span> <?= implode(', ', $item->data->features) ?>
@@ -59,7 +58,7 @@ if(!empty($item->data->color) && is_array($item->data->color)) {
             </div>
             <div class="col-md-4">
                 <?php if(Yii::$app->request->get(AddToCartForm::SUCCESS_VAR)) : ?>
-                    <h4 class="text-success"><i class="glyphicon glyphicon-ok"></i> Added to cart</h4>
+                    <h4 class="text-success"><i class="glyphicon glyphicon-ok"></i> В корзине</h4>
                 <?php elseif($item->available) : ?>
                     <br/>
                     <div class="well well-sm">
@@ -68,7 +67,7 @@ if(!empty($item->data->color) && is_array($item->data->color)) {
                             <?= $form->field($addToCartForm, 'color')->dropDownList($colors) ?>
                         <?php endif; ?>
                         <?= $form->field($addToCartForm, 'count') ?>
-                        <?= Html::submitButton('Add to cart', ['class' => 'btn btn-warning']) ?>
+                        <?= Html::submitButton('Добавить в корзину', ['class' => 'btn btn-warning']) ?>
                         <?php ActiveForm::end(); ?>
                     </div>
                 <?php endif; ?>

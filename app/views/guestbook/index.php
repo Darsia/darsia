@@ -19,7 +19,7 @@ $this->params['breadcrumbs'][] = $page->model->title;
                 <p><?= $item->text ?></p>
                 <?php if($item->answer) : ?>
                     <blockquote>
-                        <b>Administrator</b><br>
+                        <b>Администратор</b><br>
                         <?= $item->answer?>
                     </blockquote>
                 <?php endif; ?>
@@ -29,9 +29,9 @@ $this->params['breadcrumbs'][] = $page->model->title;
     </div>
     <div class="col-md-4">
         <?php if(Yii::$app->request->get(Guestbook::SENT_VAR)) : ?>
-            <h4 class="text-success"><i class="glyphicon glyphicon-ok"></i> Message successfully added</h4>
+            <h4 class="text-success"><i class="glyphicon glyphicon-ok"></i> Сообщение успешно отправлено</h4>
         <?php else : ?>
-            <h4>Leave message</h4>
+            <h4>Оставьте сообщение</h4>
             <div class="well well-sm">
                 <?= Guestbook::form() ?>
             </div>

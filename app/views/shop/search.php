@@ -5,7 +5,7 @@ use yii\easyii\modules\page\api\Page;
 $page = Page::get('page-shop-search');
 
 $this->title = $page->seo('title', $page->model->title);
-$this->params['breadcrumbs'][] = ['label' => 'Shop', 'url' => ['shop/index']];
+$this->params['breadcrumbs'][] = ['label' => 'Каталог', 'url' => ['shop/index']];
 $this->params['breadcrumbs'][] = $page->model->title;
 
 ?>
@@ -21,7 +21,7 @@ $this->params['breadcrumbs'][] = $page->model->title;
             <?php endforeach; ?>
             <?= Catalog::pages() ?>
         <?php else : ?>
-            <p>No items found</p>
+            <p>Ничего не найдено</p>
         <?php endif; ?>
     </div>
     <div class="col-md-4"></div>

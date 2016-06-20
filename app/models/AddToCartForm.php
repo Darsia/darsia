@@ -22,7 +22,7 @@ class AddToCartForm extends Model
     public function attributeLabels()
     {
         return [
-            'count' => 'Quantity',
+            'count' => 'Количество',
             'color' => 'Color',
         ];
     }

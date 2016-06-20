@@ -20,10 +20,10 @@ $this->params['breadcrumbs'][] = $page->model->title;
             <table class="table">
                 <thead>
                 <tr>
-                    <th>Item</th>
-                    <th width="100">Quantity</th>
-                    <th width="120">Unit Price</th>
-                    <th width="100">Total</th>
+                    <th>Товар</th>
+                    <th width="100">Количество</th>
+                    <th width="120">Цена за штуку</th>
+                    <th width="100">Всего</th>
                     <th width="30"></th>
                 </tr>
                 </thead>
@@ -42,26 +42,26 @@ $this->params['breadcrumbs'][] = $page->model->title;
                             <?= $good->price ?>
                         </td>
                         <td><?= $good->price * $good->count ?></td>
-                        <th><?= Html::a('<i class="glyphicon glyphicon-trash text-danger"></i>', ['/shopcart/remove', 'id' => $good->id], ['title' => 'Remove item']) ?></th>
+                        <th><?= Html::a('<i class="glyphicon glyphicon-trash text-danger"></i>', ['/shopcart/remove', 'id' => $good->id], ['title' => 'Удалить']) ?></th>
                     </tr>
                 <?php endforeach; ?>
                 <tr>
                     <td colspan="5" class="text-right">
-                        <h3>Total: <?= Shopcart::cost() ?>$</h3>
+                        <h3>Всего: <?= Shopcart::cost() ?> руб.</h3>
                     </td>
                 </tr>
                 </tbody>
             </table>
-            <?= Html::submitButton('<i class="glyphicon glyphicon-refresh"></i> Update', ['class' => 'btn btn-default pull-right']) ?>
+            <?= Html::submitButton('<i class="glyphicon glyphicon-refresh"></i> Обновить', ['class' => 'btn btn-default pull-right']) ?>
             <?= Html::endForm()?>
         </div>
         <div class="col-md-4 col-md-offset-2">
-            <h4>Checkout</h4>
+            <h4>Заказ</h4>
             <div class="well well">
                 <?= Shopcart::form(['successUrl' => Url::to('/shopcart/success')])?>
             </div>
         </div>
     </div>
 <?php else : ?>
-    <p>Shopping cart is empty</p>
+    <p>Корзина пуста</p>
 <?php endif; ?>

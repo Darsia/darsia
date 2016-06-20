@@ -14,7 +14,7 @@ $goodsCount = count(Shopcart::goods());
         <div class="row">
             <div class="h-panel clearfix">
                 <nav class="h-nav h-nav-tabs">
-                    <a href="#" class="active">Интернет-магазин</a>
+                    <a href="index" class="active">Интернет-магазин</a>
                 </nav>
                 <nav class="h-nav h-nav-center">
                     <?= Menu::widget([
@@ -26,7 +26,7 @@ $goodsCount = count(Shopcart::goods());
                             //['label' => 'Articles', 'url' => ['articles/index']],
                             ['label' => 'Галерея', 'url' => ['gallery/index']],
                             ['label' => 'Гостевая книга', 'url' => ['guestbook/index']],
-                            ['label' => 'ЧаВо', 'url' => ['faq/index']],
+                            ['label' => 'Часто задаваемые вопросы', 'url' => ['faq/index']],
                             //['label' => 'Contact', 'url' => ['/contact/index']],
                         ],
                     ]); ?>
