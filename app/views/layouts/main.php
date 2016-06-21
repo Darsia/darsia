@@ -1,6 +1,7 @@
 <?php
 use yii\easyii\modules\shopcart\api\Shopcart;
 use yii\easyii\modules\subscribe\api\Subscribe;
+use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\widgets\Breadcrumbs;
 use yii\widgets\Menu;
@@ -31,6 +32,9 @@ $goodsCount = count(Shopcart::goods());
                         ],
                     ]); ?>
                 </nav>
+                <?php
+                if (!Yii::$app->user->getIsGuest()) {
+                ?>
                 <nav class="h-nav pull-right">
                     <a href="<?= Url::to(['/shopcart']) ?>" class="btn btn-default navbar-btn navbar-right" title="Закончить покупки">
                         <i class="glyphicon glyphicon-shopping-cart"></i>
@@ -40,7 +44,14 @@ $goodsCount = count(Shopcart::goods());
                             <span class="text-muted">Пусто</span>
                         <?php endif; ?>
                     </a>
+                    <a href="<?= Url::to(['/admin/sign/out']) ?>" class="btn btn-default navbar-btn navbar-right pull-right"><i class="glyphicon glyphicon-log-out"></i> <?= Yii::t('easyii', 'Logout') ?></a>
                 </nav>
+                <?php } else {
+
+                    ?>
+                <a href="<?= Url::to(['/site/login']) ?>" class="btn btn-default navbar-btn navbar-right" title="Войти">Войти</a>
+                <a href="<?= Url::to(['/site/signup']) ?>" class="btn btn-default navbar-btn navbar-right" title="Регистрация">Регистрация</a>
+                <?php } ?>
             </div>
         </div>
     </div>
@@ -53,11 +64,13 @@ $goodsCount = count(Shopcart::goods());
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-5 col-sm-5 col-xs-6 col-xss-3">
-                    <form action="#" id="h-search">
-                        <input type="text" value="Поиск по сайту"/>
-                        <input type="submit" value="" />
-                        <a href="#" class="h-search_close">x</a>
-                    </form>
+                    <?= Html::beginForm(Url::to(['/shop/search']), 'get', ['class' => 'h-search']) ?>
+
+                        <?php $text='' ?>
+                        <?= Html::textInput('text', $text, ['class' => 'form-control', 'placeholder' => 'Поиск по сайту']) ?>
+
+                    <input type="submit" value="" hidden />
+                    <?= Html::endForm() ?>
                     <a href="#" class="h-search__link">&nbsp;</a>
                 </div>
                 <div class="col-lg-3 col-md-3 col-sm-4 col-xs-2 col-xss-3">
@@ -86,7 +99,7 @@ $goodsCount = count(Shopcart::goods());
     </main>
 </div>
 <footer>
-    <div class="container footer-content">
+    <div class="container footer-content navbar-fixed-bottom">
         <div class="row">
             <div class="col-md-2">
                 OAT

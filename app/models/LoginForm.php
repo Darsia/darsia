@@ -3,8 +3,7 @@ namespace app\models;
 
 use Yii;
 use yii\base\Model;
-use yii\web\User;
-
+use yii\easyii\models\Admin as User;
 /**
  * Login form
  */
@@ -13,12 +12,10 @@ class LoginForm extends Model
     public $username;
     public $password;
 
+
     private $_user;
 
-    public static function tableName()
-    {
-        return 'darsia_users_shop';
-    }
+
     /**
      * @inheritdoc
      */
@@ -28,6 +25,7 @@ class LoginForm extends Model
             // username and password are both required
             [['username', 'password'], 'required'],
             // rememberMe must be a boolean value
+
             // password is validated by validatePassword()
             ['password', 'validatePassword'],
         ];

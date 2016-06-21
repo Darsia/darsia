@@ -62,6 +62,7 @@ if(!empty($item->data->color) && is_array($item->data->color)) {
                 <?php elseif($item->available) : ?>
                     <br/>
                     <div class="well well-sm">
+                        <?php if(!Yii::$app->user->isGuest) {?>
                         <?php $form = ActiveForm::begin(['action' => Url::to(['/shopcart/add', 'id' => $item->id])]); ?>
                         <?php if(count($colors)) : ?>
                             <?= $form->field($addToCartForm, 'color')->dropDownList($colors) ?>
@@ -69,6 +70,11 @@ if(!empty($item->data->color) && is_array($item->data->color)) {
                         <?= $form->field($addToCartForm, 'count') ?>
                         <?= Html::submitButton('Добавить в корзину', ['class' => 'btn btn-warning']) ?>
                         <?php ActiveForm::end(); ?>
+                        <?php } else {?>
+                            <p>Войдите, чтобы сделать заказ</p>
+                            <a href="<?= Url::to(['/site/login']) ?>" class="btn btn-default navbar-btn navbar-right" title="Войти">Войти</a>
+                            <a href="<?= Url::to(['/site/signup']) ?>" class="btn btn-default navbar-btn navbar-right" title="Регистрация">Регистрация</a>
+                        <?php } ?>
                     </div>
                 <?php endif; ?>
             </div>
